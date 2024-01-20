@@ -1,38 +1,50 @@
 use std::io;
 
 fn main() {
-        println!("input numbers and the program will calculate the average");
+        println!("Input numbers and the program will calculate the average");
         
         let v: Vec<f64> = get_input();
-        let avg = cal_avg(v);
-        println!("the average is: {}", avg);
+        if check_not_empty(&v) {
+                let avg = cal_avg(v);
+                println!("The average is: {}", avg);
+        }
+        else {
+                println!("Please enter at least one number")
+        }
 }
 
-//* This function prompts the user to enter three numbers and returns them as a fixed-size array.
+//* This function prompts the user to enter multiple numbers and returns them as a fixed-size array.
 fn get_input() -> Vec<f64> {
         let mut i = 0;
         let mut input_array: Vec<f64> = Vec::new();
         loop {
-                println!("please enter the {}{} number, or z to stop", i + 1, ordinal_suffix(i));
+                println!("Please enter the {}{} number, or z to stop", i + 1, ordinal_suffix(i));
 
                 let mut input_line = String::new();
-                io::stdin().read_line(&mut input_line).expect("failed to read line");
+                io::stdin().read_line(&mut input_line).expect("Failed to read line");
 
                 if &input_line.trim().to_lowercase()[..] == "z" {
                         return input_array;
                 }
+
                 match input_line.trim().parse::<f64>() {
-                        Ok(num) => input_array.push(num),
-                        Err(_) => panic!("invalid input"),
+                        Ok(num) => {input_array.push(num);
+                        i += 1
+                        },
+                        Err(_) => println!("Invalid input, did you mean z\n"),
                 }
-                i += 1;
         }
 }
 
-//* A helper function that calculates the average of an array containing three floating-point numbers.
+//* A helper function that calculates the average of an vector containing multiple floating-point numbers.
 fn cal_avg(v: Vec<f64>) -> f64 {
         let avg: f64 = v.iter().sum::<f64>() / v.len() as f64;
         avg
+}
+
+//* A helper function checks if there's at least a number in the vector
+fn check_not_empty(v: &Vec<f64>) -> bool {
+        !v.is_empty()
 }
 
 //* A helper function provides the suffix of the number
