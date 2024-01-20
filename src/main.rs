@@ -2,7 +2,7 @@ use std::io;
 
 fn main() {
         println!("input numbers and the program will calculate the average");
-        println!("enter 'z' to stop input");
+        
         let v: Vec<f64> = get_input();
         let avg = cal_avg(v);
         println!("the average is: {}", avg);
