@@ -45,14 +45,15 @@ fn get_input() -> Vec<f64> {
                 let mut input_line = String::new();
                 io::stdin().read_line(&mut input_line).expect("Failed to read line");
                 
-                if read_number(&input_line, &mut input_vec) == (false, true) {
+                let (is_valid, is_quit) = read_number(&input_line, &mut input_vec);
+                if is_quit {
                         return input_vec;
                 }
-                else if read_number(&input_line, &mut input_vec) == (true, false) {
-                        i += 1;
-                }
-                else if read_number(&input_line, &mut input_vec) == (false, false) {
+                if !is_valid {
                         println!("Invalid number, did you mean q?\n");
+                }
+                else {
+                        i += 1;
                 }
         }
 }
