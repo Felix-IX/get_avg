@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Simple Average Calculator in Rust
 
 ## Overview
@@ -40,3 +41,8 @@ Enjoy using this simple yet functional average calculator!
 This project is licensed under the GNU General Public License version 3.0 (GPLv3). By using, distributing, or modifying this software, you agree to be bound by the terms of the GPLv3. You can find a copy of the license in the LICENSE file within the repository.
 
 Please note that any contributions made to this project are also subject to the GPL 3.0 License.
+=======
+# get_avg
+
+#### yep
+>>>>>>> 7a6c0dd4c581488565e04e38785a58079db029a4
