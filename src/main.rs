@@ -4,7 +4,7 @@ fn main() {
         println!("Input numbers and the program will calculate the average");
 
         let v: Vec<f64> = get_input();
-        let avg = match v.len() {
+        let avg: f64 = match v.len() {
                 0 => {
                         println!("Please enter at least one number");
                         return;
@@ -18,7 +18,7 @@ fn main() {
 //* the first value is whether the user entered a valid number,
 //* the second value is whether the user entered "z" to quit.
 fn read_number(input_line: &str, input_vec: &mut Vec<f64>) -> (bool, bool) {
-        let trimmed = input_line.trim();
+        let trimmed: &str = input_line.trim();
         if trimmed == "z" {
                 return (false, true);
         }
@@ -34,12 +34,12 @@ fn read_number(input_line: &str, input_vec: &mut Vec<f64>) -> (bool, bool) {
 
 //* This function prompts the user to enter multiple numbers and returns them as a vector.
 fn get_input() -> Vec<f64> {
-        let mut i = 0;
+        let mut i: usize = 0;
         let mut input_vec: Vec<f64> = Vec::new();
         loop {
                 println!("Please enter the {}{} number, or z to stop", i + 1, ordinal_suffix(i));
 
-                let mut input_line = String::new();
+                let mut input_line: String = String::new();
                 io::stdin().read_line(&mut input_line).expect("Failed to read line");
 
                 let (is_valid, is_quit) = read_number(&input_line, &mut input_vec);
