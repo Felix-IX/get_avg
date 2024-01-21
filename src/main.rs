@@ -16,22 +16,25 @@ fn main() {
 //* This function prompts the user to enter multiple numbers and returns them as a fixed-size array.
 fn get_input() -> Vec<f64> {
         let mut i = 0;
-        let mut input_array: Vec<f64> = Vec::new();
+        let mut input_vec: Vec<f64> = Vec::new();
         loop {
-                println!("Please enter the {}{} number, or z to stop", i + 1, ordinal_suffix(i));
+                println!("Please enter the {}{} number, or q to stop", i + 1, ordinal_suffix(i));
 
                 let mut input_line = String::new();
-                io::stdin().read_line(&mut input_line).expect("Failed to read line");
-
-                if &input_line.trim().to_lowercase()[..] == "z" {
-                        return input_array;
-                }
-
-                match input_line.trim().parse::<f64>() {
-                        Ok(num) => {input_array.push(num);
-                        i += 1
-                        },
-                        Err(_) => println!("Invalid input, did you mean z\n"),
+                match io::stdin().read_line(&mut input_line) {
+                        Ok(_) => {
+                                let trimmed = input_line.trim();
+                                if trimmed == "q" {
+                                        return input_vec;
+                                }
+                                match trimmed.parse::<f64>(){
+                                        Ok(num) => {input_vec.push(num);
+                                        i += 1;
+                                },
+                                        Err(_) => println!("Invalid number, did you mean q?")
+                                }
+                        }
+                        Err(_) => panic!("Failed to read line"),
                 }
         }
 }
