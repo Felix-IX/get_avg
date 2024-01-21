@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # Simple Average Calculator in Rust
 
 ## Overview
