@@ -14,11 +14,12 @@ This Rust program provides a command-line interface for calculating the average 
 
 ## Functions Summary
 
-1. `main()`: Initiates the program, prompts the user for input, and displays the calculated average.
-2. `read_number(input_line: &str, input_vec: &mut Vec<f64>) -> (bool, bool)`: A helper function that reads a line of input from the user and returns a tuple indicating whether the input was a valid number (`true`) or if the user chose to quit (`true`), updating the input vector accordingly.
+1. `main()`: Initiates the program, prompts the user for input. 
+2. `read_number(input_line: &str, input_vec: &mut Vec<f64>) -> (bool, bool)`: A helper function that reads a line of input from the user and returns a tuple indicating whether the input was a valid number (`bool 1`) or if the user chose to quit (`bool 2`), updating the input vector accordingly.
 3. `get_input() -> Vec<f64>`: This function repeatedly prompts the user for input until they indicate they want to stop by entering 'z'. It returns a vector containing all the valid numbers entered.
-4. `cal_avg(v: Vec<f64>) -> f64`: A helper function that calculates and returns the average of the provided vector of floating-point numbers.
-5. `ordinal_suffix(num: usize) -> &'static str`: A utility function used to append the correct ordinal suffix to the prompt based on the current iteration count.
+4. `cal_avg(v: &Vec<f64>) -> f64`: A helper function that calculates and returns the average of the provided vector of floating-point numbers.
+5. `check_and_print(v: &Vec<f64>)`: A helper function that checks if the vector contains at least one valid number, and if so, prints the average of the provided vector of floating-point numbers.
+6. `ordinal_suffix(num: usize) -> &'static str`: A utility function used to append the correct ordinal suffix to the prompt based on the current iteration count.
 
 ## Usage
 

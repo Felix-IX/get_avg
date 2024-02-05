@@ -12,7 +12,7 @@ pub fn check_and_print(v: &Vec<f64>) {
     }
 }
 
-//* A helper function provides the suffix of the number
+//* A utility function provides the suffix of the number
 pub fn ordinal_suffix(num: usize) -> &'static str {
     match (num + 1) % 10 {
         1 => "st",
