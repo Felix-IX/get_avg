@@ -1,7 +1,5 @@
-pub use get_avg::{
-    helper::check_and_print, 
-    input::get_input
-};
+pub mod modules;
+use modules::{helper::check_and_print, input::get_input};
 
 fn main() {
     println!("Input numbers and the program will calculate the average");

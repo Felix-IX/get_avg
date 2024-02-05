@@ -1,4 +1,4 @@
-use crate::helper::ordinal_suffix;
+use crate::modules::helper::ordinal_suffix;
 use std::io;
 
 //* this function reads a number from the user and returns a tuple (bool, bool)
