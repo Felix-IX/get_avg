@@ -1,5 +1,7 @@
-use get_avg::helper::check_and_print;
-pub use get_avg::{helper::cal_avg, input::get_input};
+pub use get_avg::{
+    helper::check_and_print, 
+    input::get_input
+};
 
 fn main() {
     println!("Input numbers and the program will calculate the average");
