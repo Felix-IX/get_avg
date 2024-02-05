@@ -22,7 +22,7 @@ pub fn read_number(input_line: &str, input_vec: &mut Vec<f64>) -> (bool, bool) {
 //* This function prompts the user to enter multiple numbers and returns them as a vector.
 pub fn get_input() -> Vec<f64> {
     let mut i: usize = 0;
-    let mut input_vec: Vec<f64> = Vec::new();
+    let mut input_vec: Vec<f64> = vec![];
     loop {
         println!("Please enter the {}{} number, or z to stop", i + 1, ordinal_suffix(i));
 
