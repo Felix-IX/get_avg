@@ -1,8 +1,5 @@
+use crate::modules::prompts::{ask_for_number, invalid_number};
 use std::io;
-use crate::modules::prompts::{
-    ask_for_number,
-    invalid_number,
-};
 
 //* this function reads a number from the user and returns a tuple (bool, bool)
 //* the first value is whether the user entered a valid number,

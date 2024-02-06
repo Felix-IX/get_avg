@@ -1,9 +1,5 @@
 pub mod modules;
-use modules::{
-    helper::check_and_print, 
-    input::get_input, 
-    prompts::greetings,
-};
+use modules::{helper::check_and_print, input::get_input, prompts::greetings};
 
 fn main() {
     // GET_AVG

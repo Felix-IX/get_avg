@@ -1,7 +1,4 @@
-use crate::modules::prompts::{
-    no_number_detected,
-    the_avg
-};
+use crate::modules::prompts::{no_number_detected, the_avg};
 
 //* A helper function that calculates the average of a vector containing multiple floating-point numbers.
 pub fn cal_avg(v: &Vec<f64>) -> f64 {
