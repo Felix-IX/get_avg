@@ -1,6 +1,8 @@
-use crate::modules::helper::ordinal_suffix;
 use std::io;
-use colored::Colorize;
+use crate::modules::prompts::{
+    ask_for_number,
+    invalid_number,
+};
 
 //* this function reads a number from the user and returns a tuple (bool, bool)
 //* the first value is whether the user entered a valid number,
@@ -25,9 +27,8 @@ pub fn get_input() -> Vec<f64> {
     let mut i: usize = 0;
     let mut input_vec: Vec<f64> = vec![];
     loop {
-        // Please enter the XXX number, or z to stop
-        println!("\nPlease enter the {}{} number, or {} to stop", i + 1, ordinal_suffix(i), "z".bright_red());
-
+        // \nPlease enter the XXX number, or z to stop
+        ask_for_number(i);
         let mut input_line: String = String::new();
         io::stdin().read_line(&mut input_line).expect("Failed to read line");
 
@@ -36,7 +37,7 @@ pub fn get_input() -> Vec<f64> {
             return input_vec;
         } else if !is_valid {
             // Invalid number, did you mean z?\n
-            println!("{} did you mean {}?\n", "Invalid number!".red(), "z".green());
+            invalid_number();
         } else {
             i += 1;
         }

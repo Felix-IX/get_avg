@@ -1,4 +1,7 @@
-use colored::Colorize;
+use crate::modules::prompts::{
+    no_number_detected,
+    the_avg
+};
 
 //* A helper function that calculates the average of a vector containing multiple floating-point numbers.
 pub fn cal_avg(v: &Vec<f64>) -> f64 {
@@ -9,10 +12,10 @@ pub fn cal_avg(v: &Vec<f64>) -> f64 {
 pub fn check_and_print(v: &Vec<f64>) {
     if v.is_empty() {
         // Please enter at least one number
-        println!("{}","Please enter at least one number".yellow());
+        no_number_detected()
     } else {
         // The average is: XXX
-        println!("{}{}", "The average is: ".green(), cal_avg(v))
+        the_avg(v)
     }
 }
 
