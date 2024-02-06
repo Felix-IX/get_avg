@@ -10,3 +10,4 @@ name = "get_avg"
 path = "src/main.rs"
 
 [dependencies]
+colored = "2.1.0"
