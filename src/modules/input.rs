@@ -26,6 +26,7 @@ pub fn get_input() -> Vec<f64> {
     loop {
         // \nPlease enter the XXX number, or z to stop
         ask_for_number(i);
+        
         let mut input_line: String = String::new();
         io::stdin().read_line(&mut input_line).expect("Failed to read line");
 
